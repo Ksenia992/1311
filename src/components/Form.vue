@@ -22,13 +22,14 @@ export default {
 }),
   methods: {
     addComment () {
-      console.log(this.comment)
-      const comment = {
-        text: this.text,
-        id: Date.now()
-      }
-      this.$store.commit("SET_COMMENT", comment)
-      this.text = ''
+     if(this.text.length) {
+       const comment = {
+         text: this.text,
+         id: Date.now()
+       }
+       this.$store.commit("SET_COMMENT", comment)
+       this.text = ''
+     }
     }
   }
 }
